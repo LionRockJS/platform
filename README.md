@@ -1,0 +1,2 @@
+# platform
+The server platform
