@@ -1,0 +1,33 @@
+{
+  "type": "module",
+  "name": "@lionrockjs/platform-web-fastify",
+  "version": "1.0.0",
+  "description": "The Web Platform support using fastify",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LionRockJS/platform.git"
+  },
+  "keywords": [
+    "LionRockJS",
+    "web",
+    "fastify"
+  ],
+  "author": "Kojin Nakana",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LionRockJS/platform/issues"
+  },
+  "homepage": "https://github.com/LionRockJS/platform#readme",
+
+  "dependencies": {
+    "fastify": "^4.14.1",
+    "@fastify/cookie": "^8.3.0",
+    "@fastify/express": "^2.3.0",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/static": "^6.9.0"
+  }
+}
