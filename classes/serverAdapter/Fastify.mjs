@@ -4,7 +4,6 @@ import RouteAdapter from "../routeAdapter/Fastify.mjs";
 import path from 'node:path';
 import Fastify from 'fastify';
 
-
 export default class ServerAdapterFastify {
   static async setup() {
     const fastifyStatic = await import('@fastify/static');
@@ -24,7 +23,7 @@ export default class ServerAdapterFastify {
 
     app.register(fastifyFormBody);
 
-    app.addContentTypeParser('multipart/form-data', function (request, payload, done) {
+    app.addContentTypeParser('multipart/form-data', (request, payload, done) => {
       done();
     })
 
@@ -37,7 +36,7 @@ export default class ServerAdapterFastify {
 
     await app.register(fastifyExpress);
 
-    if (Central.config.setup?.notFound) {
+    if (Central.config.site?.notFound) {
       app.setNotFoundHandler((request, reply) => {
         // Default not found handler with preValidation and preHandler hooks
         const { language } = request.params;
@@ -51,5 +50,3 @@ export default class ServerAdapterFastify {
     return {listen:port => app.listen({port})};
   }
 }
-
-module.exports = ServerAdapterFastify;
