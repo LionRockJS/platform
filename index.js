@@ -1,7 +1,7 @@
-import ServerAdapterFastify from './classes/serverAdapter/Fastify.mjs';
-import RouterAdapterFastify from './classes/routeAdapter/Fastify.mjs';
+import ServerAdapterExpress from './classes/serverAdapter/Express.mjs';
+import RouterAdapterExpress from './classes/routeAdapter/Express.mjs';
 
 export {
-  ServerAdapterFastify,
-  RouterAdapterFastify,
+  ServerAdapterExpress,
+  RouterAdapterExpress,
 }

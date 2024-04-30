@@ -9,7 +9,7 @@ export default class ServerAdapterFastify {
     const app = express();
 
     //serve static files
-    app.use('/media', app.static(path.normalize(`${Central.APP_PATH}/../public/media`)));
+    app.use('/media', express.static(path.normalize(`${Central.APP_PATH}/../public/media`)));
     app.use(express.json()) // for parsing application/json
     app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
