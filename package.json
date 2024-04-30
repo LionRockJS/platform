@@ -1,8 +1,8 @@
 {
   "type": "module",
-  "name": "@lionrockjs/platform-web-fastify",
-  "version": "1.0.1",
-  "description": "The Web Platform support using fastify",
+  "name": "@lionrockjs/platform-web-node-http",
+  "version": "0.0.1",
+  "description": "The Web Platform support using NodeJS http module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,8 +13,7 @@
   },
   "keywords": [
     "LionRockJS",
-    "web",
-    "fastify"
+    "web"
   ],
   "author": "Kojin Nakana",
   "license": "MIT",
@@ -24,10 +23,5 @@
   "homepage": "https://github.com/LionRockJS/platform#readme",
 
   "dependencies": {
-    "fastify": "^4.14.1",
-    "@fastify/cookie": "^8.3.0",
-    "@fastify/express": "^2.3.0",
-    "@fastify/formbody": "^7.4.0",
-    "@fastify/static": "^6.9.0"
   }
 }

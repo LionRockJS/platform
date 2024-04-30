@@ -1,18 +1,18 @@
 
-export default class RouteAdapterFastify {
+export default class RouteAdapterNodeHTTP {
   static async handler(result, reply) {
     // set cookie if fastify-cookie loaded
     if (reply.setCookie) {
       result.cookies.forEach(cookie => {
-        reply.setCookie(cookie.name, cookie.value, cookie.options);
+        reply.setHeader('Set-Cookie', `${cookie.name}=${cookie.value}; ${cookie.options}`);
       });
     }
 
     Object.keys(result.headers).forEach(headerName => {
-      reply.header(headerName, result.headers[headerName]);
+      reply.setHeader(headerName, result.headers[headerName]);
     });
-    reply.code(result.status);
-    reply.send(result.body);
+    reply.statusCode = result.status;
+    reply.end(result.body);
   }
 
   static addRoute(app, route, callback) {
