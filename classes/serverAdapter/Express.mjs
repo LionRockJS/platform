@@ -1,0 +1,29 @@
+import express from 'express';
+import { Central, RouteList } from '@lionrockjs/central';
+import RouteAdapter from "../routeAdapter/Express.mjs";
+import path from 'node:path';
+import cookieParser from 'cookie-parser';
+
+export default class ServerAdapterFastify {
+  static async setup() {
+    const app = express();
+
+    //serve static files
+    app.use('/media', app.static(path.normalize(`${Central.APP_PATH}/../public/media`)));
+    app.use(express.json()) // for parsing application/json
+    app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
+    app.use((request, res, next) =>{
+      request.raw = request;
+      next();
+    });
+
+    if (Central.config.cookie) {
+      app.use(cookieParser(Central.config.cookie.salt, Central.config.cookie.options));
+    }
+
+    RouteList.createRoute(app, RouteAdapter);
+
+    return app;
+  }
+}

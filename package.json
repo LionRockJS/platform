@@ -1,0 +1,30 @@
+{
+  "type": "module",
+  "name": "@lionrockjs/platform-web-express",
+  "version": "0.0.1",
+  "description": "The Web Platform support using express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LionRockJS/platform.git"
+  },
+  "keywords": [
+    "LionRockJS",
+    "web",
+    "fastify"
+  ],
+  "author": "Kojin Nakana",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LionRockJS/platform/issues"
+  },
+  "homepage": "https://github.com/LionRockJS/platform#readme",
+
+  "dependencies": {
+    "express": "^4.19.2",
+    "cookie-parser": "^1.4.6"
+  }
+}
