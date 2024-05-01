@@ -1,12 +1,10 @@
 
 export default class RouteAdapterNodeHTTP {
   static async handler(result, reply) {
-    // set cookie if fastify-cookie loaded
-    if (reply.setCookie) {
-      result.cookies.forEach(cookie => {
-        reply.setHeader('Set-Cookie', `${cookie.name}=${cookie.value}; ${cookie.options}`);
-      });
-    }
+
+    result.cookies.forEach(cookie => {
+      reply.setHeader('Set-Cookie', `${cookie.name}=${cookie.value}; ${cookie.options}`);
+    });
 
     Object.keys(result.headers).forEach(headerName => {
       reply.setHeader(headerName, result.headers[headerName]);
