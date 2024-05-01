@@ -15,11 +15,13 @@ export default class ServerAdapterFastify {
       ignoreTrailingSlash: true,
     });
 
-    //serve static files
-    app.register(fastifyStatic, {
-      root: path.normalize(`${Central.APP_PATH}/../public/media`),
-      prefix: '/media/',
-    })
+    if(Central.config.system.serve_static_file){
+      //serve static files
+      app.register(fastifyStatic, {
+        root: path.normalize(`${Central.APP_PATH}/../public/media`),
+        prefix: '/media/',
+      })
+    }
 
     app.register(fastifyFormBody);
 
