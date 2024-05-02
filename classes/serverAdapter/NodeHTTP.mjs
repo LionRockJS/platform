@@ -63,10 +63,8 @@ export default class ServerAdapterNodeHTTP {
           req.cookies = cookie.parse(incomingMessage.headers.cookie || "", Central.config.cookie?.options || {});
           req.params = params || {};
           req.query = this.searchParamsToObject(url.searchParams.entries());
-          req.raw = {
-            hostname: url.hostname,
-            headers: incomingMessage.headers,
-          }
+          req.raw = incomingMessage;
+          req.raw.hostname = url.hostname;
 
           await it.handler(req, reply);
         })
