@@ -65,6 +65,7 @@ export default class ServerAdapterNodeHTTP {
           req.query = this.searchParamsToObject(url.searchParams.entries());
           req.raw = incomingMessage;
           req.raw.hostname = url.hostname;
+          req.url = url.pathname;
 
           await it.handler(req, reply);
         })
