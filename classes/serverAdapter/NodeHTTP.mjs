@@ -55,7 +55,12 @@ export default class ServerAdapterNodeHTTP {
       route: it => {
         router.on(it.method, it.url, async (incomingMessage, reply, params) =>{
           const req = {headers: incomingMessage.headers};
-          if(incomingMessage.method === 'POST'){
+
+          //parse form body except multipart/form-data
+          if(
+            incomingMessage.method === 'POST' &&
+            !/^multipart\/form-data/.test(incomingMessage.headers['content-type'])
+          ){
             req.body = await this.parseBody(incomingMessage);
           }
 
