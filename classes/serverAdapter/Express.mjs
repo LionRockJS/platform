@@ -4,13 +4,14 @@ import RouteAdapter from "../routeAdapter/Express.mjs";
 import path from 'node:path';
 import cookieParser from 'cookie-parser';
 
-export default class ServerAdapterFastify {
+export default class ServerAdapterExpress {
   static async setup() {
     const app = express();
 
     //serve static files
     if(Central.config.system.serve_static_file){
-      app.use('/media', express.static(path.normalize(`${Central.APP_PATH}/../public/media`)));
+      const staticFilePath = path.normalize(`${Central.APP_PATH}/../public/media`);
+      app.use('/media', express.static(staticFilePath));
     }
 
     app.use(express.json()) // for parsing application/json
