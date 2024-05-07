@@ -4,7 +4,6 @@ import RouteAdapter from "../routeAdapter/NodeHTTP.mjs";
 import http from 'node:http';
 import path from 'node:path';
 import cookie from 'cookie';
-import serveStatic from 'serve-static';
 import findMyWay from 'find-my-way';
 
 const router = findMyWay({
@@ -36,19 +35,11 @@ export default class ServerAdapterNodeHTTP {
   }
 
   static async setup() {
-    const serve = serveStatic(path.normalize(Central.APP_PATH + '/../public'), { index: ['index.html', 'index.htm'] });
-
     const app = {
       listen: (port) => {
         //serve static files
         //if no static file, then router lookup
         const server = http.createServer((req, res)=>{
-          if(Central.config.system.serve_static_file){
-            serve(req, res, () => {
-              router.lookup(req, res);
-            });
-            return;
-          }
           router.lookup(req, res);
         });
         server.listen(port);
@@ -77,6 +68,21 @@ export default class ServerAdapterNodeHTTP {
         })
       }
     };
+
+    if(Central.config.system.serve_static_file){
+      const {default:serveStatic} = await import('serve-static');
+
+      app.listen = port =>{
+        const server = http.createServer((req, res)=>{
+          const serve = serveStatic(path.normalize(Central.APP_PATH + '/../public'), { index: ['index.html', 'index.htm'] });
+          serve(req, res, () => {
+            router.lookup(req, res);
+          });
+        });
+        server.listen(port);
+      }
+    }
+
     //notfound
 
     RouteList.createRoute(app, RouteAdapter);
