@@ -2,10 +2,11 @@ import { Central, RouteList } from '@lionrockjs/central';
 import RouteAdapter from "../routeAdapter/NodeHTTP.mjs";
 
 import http from 'node:http';
+import path from 'node:path';
 import cookie from 'cookie';
 import serveStatic from 'serve-static';
-import path from 'node:path';
 import findMyWay from 'find-my-way';
+
 const router = findMyWay({
   ignoreTrailingSlash: true,
 });
