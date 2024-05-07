@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@lionrockjs/platform-web-express",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The Web Platform support using express",
   "main": "index.js",
   "scripts": {
