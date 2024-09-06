@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@lionrockjs/platform-web-fastify",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The Web Platform support using fastify",
   "main": "index.js",
   "scripts": {
@@ -24,10 +24,10 @@
   "homepage": "https://github.com/LionRockJS/platform#readme",
 
   "dependencies": {
-    "fastify": "^4.26.2",
-    "@fastify/cookie": "^9.3.1",
+    "fastify": "^4.28.1",
+    "@fastify/cookie": "^9.4.0",
     "@fastify/express": "^3.0.0",
     "@fastify/formbody": "^7.4.0",
-    "@fastify/static": "^7.0.3"
+    "@fastify/static": "^7.0.4"
   }
 }
