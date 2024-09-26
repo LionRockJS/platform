@@ -8,6 +8,7 @@ import findMyWay from 'find-my-way';
 
 const router = findMyWay({
   ignoreTrailingSlash: true,
+  maxParamLength: 500,
 });
 
 export default class ServerAdapterNodeHTTP {
