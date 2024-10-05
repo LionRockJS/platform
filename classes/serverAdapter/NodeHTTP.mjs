@@ -1,4 +1,5 @@
-import { Central, RouteList } from '@lionrockjs/central';
+import { Central } from '@lionrockjs/central';
+import { RouteList } from '@lionrockjs/router';
 import RouteAdapter from "../routeAdapter/NodeHTTP.mjs";
 
 import http from 'node:http';

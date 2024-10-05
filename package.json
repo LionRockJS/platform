@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@lionrockjs/platform-web-node-http",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "The Web Platform support using NodeJS http module",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "homepage": "https://github.com/LionRockJS/platform#readme",
 
   "dependencies": {
-    "cookie": "^0.6.0",
-    "find-my-way": "^9.0.1"
+    "cookie": "^0.7.1",
+    "find-my-way": "^9.1.0"
   }
 }
