@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@lionrockjs/platform-web-express",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "The Web Platform support using express",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "homepage": "https://github.com/LionRockJS/platform#readme",
 
   "dependencies": {
-    "express": "^4.19.2",
+    "express": "^4.21.0",
     "cookie-parser": "^1.4.6"
   }
 }

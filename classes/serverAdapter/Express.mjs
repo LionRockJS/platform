@@ -1,5 +1,6 @@
 import express from 'express';
-import { Central, RouteList } from '@lionrockjs/central';
+import { Central } from '@lionrockjs/central';
+import { RouteList } from '@lionrockjs/router';
 import RouteAdapter from "../routeAdapter/Express.mjs";
 import path from 'node:path';
 import cookieParser from 'cookie-parser';
