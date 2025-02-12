@@ -23,7 +23,7 @@
   "homepage": "https://github.com/LionRockJS/platform#readme",
 
   "dependencies": {
-    "cookie": "^0.7.1",
+    "cookie": "^1.0.2",
     "find-my-way": "^9.1.0"
   }
 }
