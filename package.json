@@ -3,7 +3,7 @@
   "name": "@lionrockjs/platform-web-node-http",
   "version": "0.0.9",
   "description": "The Web Platform support using NodeJS http module",
-  "main": "classes/index.mjs",
+  "main": "classes/index.js",
   "types": "types/index.d.mts",
   "scripts": {
     "test": "bun test",
