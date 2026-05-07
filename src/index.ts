@@ -1,7 +1,7 @@
-import ServerAdapterNodeHTTP from './serverAdapter/NodeHTTP.mjs';
-import RouterAdapterNodeHTTP from './routeAdapter/NodeHTTP.mjs';
+import ServerAdapterCFWorkers from './serverAdapter/CFWorkers.mjs';
+import RouteAdapterCFWorkers from './routeAdapter/CFWorkers.mjs';
 
 export {
-  ServerAdapterNodeHTTP,
-  RouterAdapterNodeHTTP,
+  ServerAdapterCFWorkers,
+  RouteAdapterCFWorkers,
 }

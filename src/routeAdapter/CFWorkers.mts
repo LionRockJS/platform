@@ -1,7 +1,6 @@
-import { IncomingMessage, ServerResponse } from 'node:http';
-
-export default class RouteAdapterNodeHTTP {
-  static async handler(result: any, reply: ServerResponse) {
+export default class RouteAdapterCFWorkers {
+  static async handler(result: any, resolve: (response: Response) => void) {
+    const headers = new Headers();
 
     result.cookies.forEach((cookie: any) => {
       let attributes = '';
@@ -29,21 +28,23 @@ export default class RouteAdapterNodeHTTP {
 
       //remove trailing semicolon
       attributes = attributes.replace(/; $/, '');
-      reply.setHeader('Set-Cookie', `${cookie.name}=${cookie.value}; ${attributes}`);
+      headers.append('Set-Cookie', `${cookie.name}=${cookie.value}; ${attributes}`);
     });
 
     Object.keys(result.headers).forEach(headerName => {
-      reply.setHeader(headerName, result.headers[headerName]);
+      headers.set(headerName, result.headers[headerName]);
     });
-    reply.statusCode = result.status;
-    reply.end(result.body);
+
+    resolve(new Response(result.body, {
+      status: result.status,
+      headers,
+    }));
   }
 
   static addRoute(app: any, route: any, callback: any) {
     app.route({
       method: route.method,
       url: route.path,
-      schema: route.schema || {},
       handler: callback,
     });
   }
