@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "description": "The Web Platform support using Cloudflare Workers.",
   "main": "classes/index.js",
-  "types": "types/index.d.mts",
+  "types": "types/index.d.ts",
   "scripts": {
     "test": "bun test",
     "build": "tsc",

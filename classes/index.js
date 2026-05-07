@@ -1,3 +1,3 @@
-import ServerAdapterCFWorkers from './serverAdapter/CFWorkers.mjs';
-import RouteAdapterCFWorkers from './routeAdapter/CFWorkers.mjs';
-export { ServerAdapterCFWorkers, RouteAdapterCFWorkers, };
+import ServerAdapter from './serverAdapter/CFWorkers.mjs';
+import RouteAdapter from './routeAdapter/CFWorkers.mjs';
+export { ServerAdapter, RouteAdapter, };
