@@ -1,9 +1,9 @@
 {
   "type": "module",
   "name": "@lionrockjs/platform-web-node-http",
-  "version": "0.0.9",
+  "version": "2.0.0",
   "description": "The Web Platform support using NodeJS http module",
-  "main": "classes/index.js",
+  "main": "dist/index.js",
   "types": "types/index.d.mts",
   "scripts": {
     "test": "bun test",
