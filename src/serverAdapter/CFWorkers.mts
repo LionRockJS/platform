@@ -63,6 +63,6 @@ export default class ServerAdapterCFWorkers {
 
     RouteList.createRoute(app, RouteAdapter);
 
-    return { fetch: hono.fetch.bind(hono) };
+    return { listen : (request: any) => hono.fetch(request)};
   }
 }
