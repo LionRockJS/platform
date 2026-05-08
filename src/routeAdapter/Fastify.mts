@@ -1,9 +1,7 @@
-
 export default class RouteAdapterFastify {
-  static async handler(result, reply) {
-    // set cookie if fastify-cookie loaded
+  static async handler(result: any, reply: any) {
     if (reply.setCookie) {
-      result.cookies.forEach(cookie => {
+      result.cookies.forEach((cookie: any) => {
         reply.setCookie(cookie.name, cookie.value, cookie.options);
       });
     }
@@ -15,7 +13,7 @@ export default class RouteAdapterFastify {
     reply.send(result.body);
   }
 
-  static addRoute(app, route, callback) {
+  static addRoute(app: any, route: any, callback: any) {
     app.route({
       method: route.method,
       url: route.path,

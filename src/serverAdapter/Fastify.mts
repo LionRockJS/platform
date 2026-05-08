@@ -1,7 +1,6 @@
 import { Central } from '@lionrockjs/central';
 import { RouteList } from '@lionrockjs/router';
 import RouteAdapter from "../routeAdapter/Fastify.mjs";
-
 import path from 'node:path';
 import Fastify from 'fastify';
 import fastifyStatic from '@fastify/static';
@@ -16,17 +15,16 @@ export default class ServerAdapterFastify {
       ignoreTrailingSlash: true,
     });
 
-    if(Central.config.system.serve_static_file){
-      //serve static files
+    if (Central.config.system.serve_static_file) {
       app.register(fastifyStatic, {
         root: path.normalize(`${Central.APP_PATH}/../public/media`),
         prefix: '/media/',
-      })
+      });
     }
 
     app.register(fastifyFormBody);
 
-    app.addContentTypeParser('multipart/form-data', (request, payload, done) => done());
+    app.addContentTypeParser('multipart/form-data', (request: any, payload: any, done: any) => done(null, payload));
 
     if (Central.config.cookie) {
       app.register(fastifyCookie, {
@@ -37,8 +35,7 @@ export default class ServerAdapterFastify {
 
     await app.register(fastifyExpress);
 
-    app.setNotFoundHandler((request, reply) => {
-      // Default not found handler with preValidation and preHandler hooks
+    app.setNotFoundHandler((request: any, reply: any) => {
       const { language } = request.params;
       const url = language ? `/${language}/pages/404` : '/pages/404';
       reply.redirect(`${url}?s=${request.url.replace('?', '%3F').replaceAll('&', '%26')}`);
@@ -46,6 +43,6 @@ export default class ServerAdapterFastify {
 
     RouteList.createRoute(app, RouteAdapter);
 
-    return {listen:port => app.listen({port})};
+    return { listen: (port: number) => app.listen({ port }) };
   }
 }
