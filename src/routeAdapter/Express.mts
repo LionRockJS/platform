@@ -1,9 +1,7 @@
-
 export default class RouteAdapterExpress {
-  static async handler(result, reply) {
-    // set cookie if fastify-cookie loaded
-    if (reply.setCookie) {
-      result.cookies.forEach(cookie => {
+  static async handler(result: any, reply: any) {
+    if (reply.cookie) {
+      result.cookies.forEach((cookie: any) => {
         reply.cookie(cookie.name, cookie.value, cookie.options);
       });
     }
@@ -15,7 +13,7 @@ export default class RouteAdapterExpress {
     reply.send(result.body);
   }
 
-  static addRoute(app, route, callback) {
+  static addRoute(app: any, route: any, callback: any) {
     switch (route.method) {
       case "POST":
         return app.post(route.path, callback);

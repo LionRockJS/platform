@@ -9,16 +9,15 @@ export default class ServerAdapterExpress {
   static async setup() {
     const app = express();
 
-    //serve static files
-    if(Central.config.system.serve_static_file){
+    if (Central.config.system.serve_static_file) {
       const staticFilePath = path.normalize(`${Central.APP_PATH}/../public/media`);
       app.use('/media', express.static(staticFilePath));
     }
 
-    app.use(express.json()) // for parsing application/json
-    app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
 
-    app.use((request, res, next) =>{
+    app.use((request: any, res: any, next: any) => {
       request.raw = request;
       next();
     });
